@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Database", "01 Database", "{BFB672DD-AEF9-47C1-B783-8DA5505C409C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Dal", "02 Dal", "{E8816A01-2685-49D3-A940-B8D9236768AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 MVC", "03 MVC", "{36817233-2AB4-4236-B284-2F102883F91F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99 Tools", "99 Tools", "{A8073E4F-EB15-4FF7-8F9F-F0C05F41DF8E}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Afelio_DemoCQRS.Database", "Afelio_DemoCQRS.Database\Afelio_DemoCQRS.Database.sqlproj", "{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{FB66DABA-37F5-4E76-AC0D-35660E4B2F50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Afelio_DemoCQRS.Dal", "Afelio_DemoCQRS.Dal\Afelio_DemoCQRS.Dal.csproj", "{E517D68D-C712-4294-9577-F3740F0AE6D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Afelio_DemoCQRS", "Afelio_DemoCQRS\Afelio_DemoCQRS.csproj", "{3F8BA72A-C858-43F4-9708-6CD78A9F8296}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FB66DABA-37F5-4E76-AC0D-35660E4B2F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB66DABA-37F5-4E76-AC0D-35660E4B2F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB66DABA-37F5-4E76-AC0D-35660E4B2F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB66DABA-37F5-4E76-AC0D-35660E4B2F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E517D68D-C712-4294-9577-F3740F0AE6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E517D68D-C712-4294-9577-F3740F0AE6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E517D68D-C712-4294-9577-F3740F0AE6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E517D68D-C712-4294-9577-F3740F0AE6D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F8BA72A-C858-43F4-9708-6CD78A9F8296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F8BA72A-C858-43F4-9708-6CD78A9F8296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F8BA72A-C858-43F4-9708-6CD78A9F8296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F8BA72A-C858-43F4-9708-6CD78A9F8296}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4E6C23E8-CD3E-46DD-AFFC-33DB1085FDB0} = {BFB672DD-AEF9-47C1-B783-8DA5505C409C}
+		{FB66DABA-37F5-4E76-AC0D-35660E4B2F50} = {A8073E4F-EB15-4FF7-8F9F-F0C05F41DF8E}
+		{E517D68D-C712-4294-9577-F3740F0AE6D8} = {E8816A01-2685-49D3-A940-B8D9236768AD}
+		{3F8BA72A-C858-43F4-9708-6CD78A9F8296} = {36817233-2AB4-4236-B284-2F102883F91F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0851D6D4-8B8E-4E18-9ED6-6F144678693F}
+	EndGlobalSection
+EndGlobal
