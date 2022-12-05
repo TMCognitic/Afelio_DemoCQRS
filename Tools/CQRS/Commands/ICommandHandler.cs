@@ -11,4 +11,10 @@ namespace Tools.CQRS.Commands
     {
         public Result Execute(TCommand command);
     }
+
+    public interface ICommandHandler<TCommand, T>
+        where TCommand : ICommand<T>
+    {
+        public Result<T> Execute(TCommand command);
+    }
 }

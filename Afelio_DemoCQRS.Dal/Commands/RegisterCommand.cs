@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tools.Connections.Databases;
+using Tools.CQRS;
 using Tools.CQRS.Commands;
 
 namespace Afelio_DemoCQRS.Dal.Commands
 {
-    public class RegisterCommand : ICommand
+    public class RegisterCommand : ICommand<int>
     {
         public string Nom { get; init; }
         public string Prenom { get; init; }
@@ -28,7 +29,8 @@ namespace Afelio_DemoCQRS.Dal.Commands
         }
     }
 
-    public class RegisterCommandHandler : ICommandHandler<RegisterCommand>
+    [InjectionMode(InjectionMode.Scoped)]
+    public class RegisterCommandHandler : ICommandHandler<RegisterCommand, int>
     {
         private readonly DbConnection _dbConnection;
 
@@ -37,24 +39,24 @@ namespace Afelio_DemoCQRS.Dal.Commands
             _dbConnection = dbConnection;
         }
 
-        public Result Execute(RegisterCommand command)
+        public Result<int> Execute(RegisterCommand command)
         {
             using (_dbConnection)
             {
                 try
                 {
-                    int rows = _dbConnection.ExecuteNonQuery("CSP_Register", true, command);
+                    int? id = (int?)_dbConnection.ExecuteScalar("CSP_Register", true, command);
                     
-                    if(rows != 1)
+                    if(!id.HasValue)
                     {
-                        return Result.Failure("Erreur avec la db...");
+                        return Result<int>.Failure("Erreur avec la db...");
                     }
 
-                    return Result.Success();
+                    return Result<int>.Success(id.Value);
                 }
                 catch (Exception ex)
                 {
-                    return Result.Failure(ex.Message);
+                    return Result<int>.Failure(ex.Message);
                 }
             }
         }

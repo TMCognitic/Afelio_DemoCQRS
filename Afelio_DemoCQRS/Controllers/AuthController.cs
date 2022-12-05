@@ -2,7 +2,9 @@
 using Afelio_DemoCQRS.Dal.Entities;
 using Afelio_DemoCQRS.Dal.Queries;
 using Afelio_DemoCQRS.Models.Forms;
+
 using Microsoft.AspNetCore.Mvc;
+using Tools.CQRS;
 using Tools.CQRS.Commands;
 using Tools.CQRS.Queries;
 
@@ -10,13 +12,11 @@ namespace Afelio_DemoCQRS.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly IQueryHandler<LoginQuery, Utilisateur> _queryhandler;
-        private readonly ICommandHandler<RegisterCommand> _commandHandler;
+        private readonly Dispatcher _dispatcher;
 
-        public AuthController(IQueryHandler<LoginQuery, Utilisateur> queryhandler, ICommandHandler<RegisterCommand> commandHandler)
+        public AuthController(Dispatcher dispatcher)
         {
-            _queryhandler = queryhandler;
-            _commandHandler = commandHandler;
+            _dispatcher = dispatcher;
         }
 
         public IActionResult Index()
@@ -37,7 +37,7 @@ namespace Afelio_DemoCQRS.Controllers
                 return View(form);
             }
 
-            Utilisateur? utilisateur = _queryhandler.Execute(new LoginQuery(form.Email, form.Passwd));
+            Utilisateur? utilisateur = _dispatcher.Dispatch(new LoginQuery(form.Email, form.Passwd));
 
             if(utilisateur is null) 
             {
@@ -63,13 +63,14 @@ namespace Afelio_DemoCQRS.Controllers
                 return View(form);
             }
 
-            Result result = _commandHandler.Execute(new RegisterCommand(form.Nom, form.Prenom, form.Email, DateOnly.FromDateTime(form.Anniversaire), form.Passwd));
+            Result<int> result = _dispatcher.Dispatch(new RegisterCommand(form.Nom, form.Prenom, form.Email, DateOnly.FromDateTime(form.Anniversaire), form.Passwd));
 
             if(result.IsFailure)
             {
                 ModelState.AddModelError("", result.Message!);
             }
 
+            TempData["Id"] = result.Value;
             return RedirectToAction(nameof(Login));
         }
     }

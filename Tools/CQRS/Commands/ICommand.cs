@@ -9,4 +9,8 @@ namespace Tools.CQRS.Commands
     public interface ICommand
     {
     }
+
+    public interface ICommand<T>
+    {
+    }
 }

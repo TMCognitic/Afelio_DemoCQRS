@@ -6,5 +6,5 @@
 	@Passwd NVARCHAR(20)
 AS
 BEGIN
-	INSERT INTO [Utilisateur] (Nom, Prenom, Email, Anniversaire, Passwd) VALUES (@Nom, @Prenom, @Email, @Anniversaire, dbo.CSF_HashPasswd(@Passwd));
+	INSERT INTO [Utilisateur] (Nom, Prenom, Email, Anniversaire, Passwd) OUTPUT inserted.Id VALUES (@Nom, @Prenom, @Email, @Anniversaire, dbo.CSF_HashPasswd(@Passwd));
 END

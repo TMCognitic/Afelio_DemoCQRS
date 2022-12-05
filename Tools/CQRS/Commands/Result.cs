@@ -29,4 +29,31 @@ namespace Tools.CQRS.Commands
             Message = message;
         }
     }
+
+    public class Result<T>
+    {
+        public static Result<T> Success(T value)
+        {
+            return new Result<T>(true, value);
+        }
+
+        public static Result<T> Failure(string message)
+        {
+            return new Result<T>(false, default, message);
+        }
+
+        public bool IsSuccess { get; init; }
+        public bool IsFailure => !IsSuccess;
+
+        public T? Value { get; init; }
+
+        public string? Message { get; init; }
+
+        private Result(bool isSucess, T? value, string? message = null)
+        {
+            IsSuccess = isSucess;
+            Message = message;
+            Value = value;
+        }
+    }
 }

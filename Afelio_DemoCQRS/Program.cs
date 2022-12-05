@@ -3,6 +3,7 @@ using Afelio_DemoCQRS.Dal.Entities;
 using Afelio_DemoCQRS.Dal.Queries;
 using System.Data.Common;
 using System.Data.SqlClient;
+using Tools.CQRS;
 using Tools.CQRS.Commands;
 using Tools.CQRS.Queries;
 
@@ -29,8 +30,8 @@ namespace Afelio_DemoCQRS
             #endregion
 
             builder.Services.AddTransient<DbConnection>(sp => new SqlConnection(configuration.GetConnectionString("Default")));
-            builder.Services.AddScoped<IQueryHandler<LoginQuery, Utilisateur>, LoginQueryHandler>();
-            builder.Services.AddScoped<ICommandHandler<RegisterCommand>, RegisterCommandHandler>();
+            builder.Services.AddScoped<Dispatcher>();
+            builder.Services.AddHandlers();
 
 
             var app = builder.Build();
