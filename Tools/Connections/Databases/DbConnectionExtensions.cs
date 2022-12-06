@@ -99,7 +99,7 @@ namespace Tools.Connections.Databases
                     dbParameter.ParameterName = propertyInfo.Name;
 
                     if (propertyInfo.GetMethod is null)
-                        throw new InvalidOperationException($"The getter must be public for the property {propertyInfo.Name}");
+                        throw new InvalidOperationException($"L'accesseur de la propriété {propertyInfo.Name} doit être public");
 
                     object? value = propertyInfo.GetMethod.Invoke(parameters, null);
 

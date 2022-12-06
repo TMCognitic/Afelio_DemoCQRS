@@ -13,7 +13,7 @@ namespace Afelio_DemoCQRS.Dal.Entities
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Email { get; set; }
-        public DateOnly Anniversaire { get; set; }
+        public DateTime Anniversaire { get; set; }
         public string Passwd { get; set; }
     }
 #nullable enable

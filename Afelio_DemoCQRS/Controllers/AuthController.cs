@@ -73,5 +73,10 @@ namespace Afelio_DemoCQRS.Controllers
             TempData["Id"] = result.Value;
             return RedirectToAction(nameof(Login));
         }
+
+        public IActionResult TestJeremy()
+        {
+            return Json(_dispatcher.Dispatch(new GetAllUserQuery()));
+        }
     }
 }
